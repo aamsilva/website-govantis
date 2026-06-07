@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Govantis — Bridging Platform Strategy with AI-Native Execution. European advisory with global reach. info@govantis.pt">
+    <meta name="description" content="Govantis — Bridging Platform Strategy with AI-Native Execution. Based in Lisbon. info@govantis.pt">
     <title>Govantis — Platform Strategy & AI-Native Execution</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -107,29 +107,34 @@
         }
         .header .container { display: flex; justify-content: space-between; align-items: center; }
 
-        /* --- Animated Logo (v1 heritage) --- */
-        .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        /* --- Logo (v1 heritage — exact replica) --- */
+        .logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
         .logo-mark {
             position: relative; width: 32px; height: 32px;
             display: flex; align-items: center; justify-content: center;
         }
-        .logo-mark .rotator {
+        .logo-mark .outer {
             position: absolute; inset: 0;
-            border: 2px solid var(--accent-teal);
-            border-radius: 6px;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            background: var(--accent-teal);
+            border-radius: 8px;
+            transform: rotate(45deg);
+            opacity: 0.2;
+            transition: transform 0.5s ease;
         }
-        .logo-mark.animate .rotator {
+        .logo-mark:hover .outer,
+        .logo-mark.animate .outer {
             transform: rotate(90deg);
         }
-        .logo-mark .inner-square {
-            width: 14px; height: 14px;
+        .logo-mark .inner {
+            width: 20px; height: 20px;
             border: 2px solid var(--accent-teal);
-            border-radius: 3px;
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 4px;
+            transform: rotate(45deg);
+            transition: transform 0.5s ease;
         }
-        .logo-mark.animate .inner-square {
-            transform: rotate(-90deg);
+        .logo-mark:hover .inner,
+        .logo-mark.animate .inner {
+            transform: rotate(0deg);
         }
         .logo-text { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
 
@@ -320,8 +325,8 @@
         <div class="container">
             <a href="#" class="logo" id="logo">
                 <div class="logo-mark" id="logoMark">
-                    <div class="rotator"></div>
-                    <div class="inner-square"></div>
+                    <div class="outer"></div>
+                    <div class="inner"></div>
                 </div>
                 <span class="logo-text">GOVANTIS</span>
             </a>
@@ -356,7 +361,7 @@
                     Govantis was built by engineers and strategists who shaped platform architectures at Deutsche Telekom, Vodafone, BT, and NOS. We bring direct experience from the RDK ecosystem and prpl Foundation — not second-hand knowledge.
                 </p>
                 <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: var(--space-6);">
-                    European company, global operations. Offices in Lisbon and Philadelphia. We work where our clients need us — from operator boardrooms to engineering war rooms.
+                    European company, global operations. Based in Lisbon. We work where our clients need us — from operator boardrooms to engineering war rooms.
                 </p>
                 <div class="partner-grid">
                     <div class="partner">Deutsche Telekom</div>
@@ -465,17 +470,16 @@
                 <div>
                     <div class="logo" style="cursor: default;">
                         <div class="logo-mark">
-                            <div class="rotator" style="border-color: var(--accent-teal);"></div>
-                            <div class="inner-square" style="border-color: var(--accent-teal);"></div>
-                        </div>
+                        <div class="outer"></div>
+                        <div class="inner"></div>
+                    </div>
                         <span class="logo-text" style="font-size: 1.1rem;">GOVANTIS</span>
                     </div>
                     <p style="margin-top: var(--space-3); font-size: 0.85rem;">Bridging Platform Strategy with AI-Native Execution. European advisory with global reach.</p>
                 </div>
                 <div>
-                    <h4>Offices</h4>
-                    <p><i class="fa-solid fa-location-dot" style="margin-right: 6px; color: var(--accent-teal);"></i> Lisbon, Portugal</p>
-                    <p><i class="fa-solid fa-location-dot" style="margin-right: 6px; color: var(--accent-teal);"></i> Philadelphia, USA</p>
+                    <h4>Office</h4>
+                    <p><i class="fa-solid fa-location-dot" style="margin-right: 6px; color: var(--accent-teal);"></i> Rua Castilho, n.º 39, 8.º E<br>1250-068 Santo António, Lisboa</p>
                 </div>
                 <div>
                     <h4>Connect</h4>
