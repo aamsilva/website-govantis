@@ -39,17 +39,17 @@ const Hero = () => (
         className="max-w-3xl"
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-500/10 border border-electric-500/20 text-electric-400 text-xs font-semibold mb-6">
-          <Zap size={14} /> AI-Native Tech Consultancy
+          <Zap size={14} /> AI-Native Solutions
         </div>
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-[1.1]">
           Bridging Platform Strategy with <span className="text-transparent bg-clip-text bg-gradient-to-r from-electric-400 to-cyan-400">AI-Native Execution.</span>
         </h1>
         <p className="text-xl text-slate-400 mb-10 leading-relaxed max-w-2xl">
-          Govantis empowers global telecom and tech leaders with governance-first AI integration and complex platform delivery.
+          Govantis delivers governance-first AI integration and complex platform delivery for global telecom and tech leaders.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <button className="px-8 py-4 bg-electric-500 hover:bg-electric-600 text-white font-semibold rounded-lg flex items-center justify-center gap-2 transition-all shadow-lg shadow-electric-500/20">
-            Consult our Experts <ArrowRight size={18} />
+            Explore Our Solutions <ArrowRight size={18} />
           </button>
           <button className="px-8 py-4 bg-slate-900 hover:bg-slate-800 border border-slate-800 text-white font-semibold rounded-lg transition-all">
             View Case Studies
@@ -150,7 +150,7 @@ const Footer = () => (
     <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
       <div>
         <Logo />
-        <p className="mt-4 text-slate-500 text-sm">© 2026 Govantis Consulting. All rights reserved.</p>
+        <p className="mt-4 text-slate-500 text-sm">© 2026 Govantis. All rights reserved.</p>
       </div>
       <div className="flex items-center gap-6">
         <a href="#" className="text-slate-400 hover:text-white transition-colors">
