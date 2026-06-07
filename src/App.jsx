@@ -157,7 +157,7 @@ const Footer = () => (
           <Linkedin size={20} />
         </a>
         <a href="mailto:contact@govantis.com" className="text-slate-400 hover:text-white transition-colors text-sm font-medium">
-          contact@govantis.com
+info@govantis.pt
         </a>
       </div>
     </div>
