@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Govantis | Platform Strategy & AI-Native Execution</title>
     
     <!-- Fonts & Icons -->
@@ -469,6 +471,8 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 2.5rem; }
         }
+    
+:focus-visible{outline:2px solid #2dd4bf;outline-offset:2px;border-radius:2px}
     </style>
 </head>
 <body>
@@ -501,6 +505,7 @@
             </nav>
         </div>
     </header>
+<main id="content">
 
     <section class="hero">
         <div class="container">
@@ -605,7 +610,8 @@
         </div>
     </section>
 
-    <footer id="contact">
+    </main>
+<footer id="contact">
         <div class="container footer-grid">
             <div class="footer-brand">
                 <a href="#" class="logo-text">
