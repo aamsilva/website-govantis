@@ -147,18 +147,25 @@ const ValueProp = () => (
 
 const Footer = () => (
   <footer className="py-12 border-t border-slate-800">
-    <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8 items-start">
       <div>
         <Logo />
         <p className="mt-4 text-slate-500 text-sm">© 2026 Govantis. All rights reserved.</p>
       </div>
-      <div className="flex items-center gap-6">
-        <a href="#" className="text-slate-400 hover:text-white transition-colors">
-          <Linkedin size={20} />
-        </a>
-        <a href="mailto:contact@govantis.com" className="text-slate-400 hover:text-white transition-colors text-sm font-medium">
-info@govantis.pt
-        </a>
+      <div>
+        <h4 className="text-sm font-semibold text-white mb-3">Office</h4>
+        <p className="text-slate-400 text-sm">Rua Castilho, n.º 39, 8.º E</p>
+        <p className="text-slate-400 text-sm">1250-068 Santo António, Lisboa</p>
+      </div>
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-4">
+          <a href="#" className="text-slate-400 hover:text-white transition-colors">
+            <Linkedin size={20} />
+          </a>
+          <a href="mailto:info@govantis.pt" className="text-slate-400 hover:text-white transition-colors text-sm font-medium">
+            info@govantis.pt
+          </a>
+        </div>
       </div>
     </div>
   </footer>
