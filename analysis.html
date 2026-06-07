@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Govantis — Brutal Analysis v1-v4</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:Inter,system-ui,sans-serif;background:#020617;color:#f8fafc;padding:2rem;max-width:900px;margin:0 auto;line-height:1.8}h1{color:#2dd4bf;font-size:1.8rem;border-bottom:1px solid rgba(255,255,255,.08);padding-bottom:.5rem;margin-top:2rem}h2{color:#94a3b8;font-size:1.2rem;margin-top:2rem}table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.85rem}th,td{border:1px solid rgba(255,255,255,.08);padding:.5rem .75rem;text-align:left}th{background:rgba(15,23,42,.6);color:#2dd4bf}pre{background:rgba(15,23,42,.6);padding:1rem;border-radius:8px;overflow-x:auto;font-size:.8rem;line-height:1.5}strong{color:#f8fafc}code{font-size:.8rem;color:#2dd4bf}hr{border-color:rgba(255,255,255,.06)}</style></head><body><pre># GOVANTIS — ANÁLISE BRUTAL DAS 4 VERSÕES
+
+**Data**: 2026-06-08 | **Agents**: Brand Guardian, UX Architect, UI Designer, Visual Storyteller, Content Creator, PR &amp; Comms Manager
+**Modo**: Sem filtros. Sem diplomatas. A verdade que a indústria vê.
+
+---
+
+## 1. ÍCONE / LOGO — O PROBLEMA DA INCONSISTÊNCIA
+
+| Versão | Logo | Consistente? |
+|---|---|---|
+| v1 | Duplo-quadrado CSS (azul #3b82f6) | ✅ Base |
+| v2 | **SVG escudos sobrepostos** (teal + branco) | ❌ DIFERENTE |
+| v3 | Duplo-quadrado CSS (teal #2dd4bf) | ✅ |
+| v4 | Duplo-quadrado CSS (teal #2dd4bf) | ✅ |
+
+**Veredito**: v1, v3, v4 partilham o mesmo logo estrutural. v2 usa um logo completamente diferente (escudos SVG do Gemini). O logo duplo-quadrado é o brand mark correcto — pode e deve ser registado como identidade visual da Govantis.
+
+**O que fazer**: Registrar o duplo-quadrado (outer sólido rot-45°, inner border rot-45°, contra-rotação) como marca. Não usar o logo de escudos da v2 em nenhum contexto futuro.
+
+**Arquivos para Google Workspace**:
+- `www.govantis.pt/brand/govantis-icon-512.svg` — Logo 512×512 (upload no Admin Console)
+- `www.govantis.pt/brand/govantis-icon-256.png` — Logo 256×256 (fallback)
+- `www.govantis.pt/brand/govantis-favicon.svg` — Favicon 32×32
+
+---
+
+## 2. ANÁLISE VERSÃO POR VERSÃO
+
+### v1 (React) — &quot;AI-Native Solutions&quot;
+
+| Agente | Nota | Comentário |
+|---|---|---|
+| Brand Guardian | 4/10 | Logo blue, não teal. Sem gradiente no texto. O azul eléctrico parece uma startup SaaS genérica, não uma empresa de advisory séria. |
+| UX Architect | 5/10 | React + Vite é overkill para uma landing page. 267KB de JS bundle para mostrar texto e cards. Mobile: navbar desaparece — sem hamburger menu. |
+| UI Designer | 4/10 | Cards sólidos sem glass. Sem animações no hero. O footer tem 3 colunas mas a middle column (&quot;Office&quot;) parece deslocada. |
+| Visual Storyteller | 3/10 | Zero imagens. Zero movimento no hero. Apenas ícones Lucide. &quot;View Case Studies&quot; não linka para lado nenhum. |
+| Content Creator | 4/10 | &quot;Heritage in Excellence&quot; é genérico. Diz o quê? Os nomes das operadoras estão abreviados (DT em vez de Deutsche Telekom). Tag skills parecem keywords SEO, não conteúdo real. |
+| PR &amp; Comms | 3/10 | &quot;Explore Our Solutions&quot; — que soluções? O site não mostra nenhuma. &quot;View Case Studies&quot; — não há case studies. Promete o que não entrega. Email href diz contact@govantis.com mas o texto diz info@govantis.pt — inconsistente. |
+| **Média** | **3.8/10** | |
+
+**O que a indústria vê**: Uma startup que montou um site em React durante um hackathon. O azul eléctrico grita &quot;SaaS B2C&quot;, não &quot;advisory estratégico para operadoras de telecom&quot;. A promessa de case studies que não existem queima credibilidade.
+
+---
+
+### v2 (HTML) — &quot;Platform Strategy Advisory&quot; (Gemini)
+
+| Agente | Nota | Comentário |
+|---|---|---|
+| Brand Guardian | 5/10 | O logo de escudos é visualmente interessante mas É OUTRO LOGO. Dois logos diferentes = empresa que não sabe quem é. Cor teal consistente — isso é bom. |
+| UX Architect | 6/10 | HTML estático — leve, rápido. Canvas background. Mas nav diz &quot;IMPACT&quot; em vez de algo mais standard. Mobile: nav desaparece sem alternativa. |
+| UI Designer | 7/10 | Glass cards bem conseguidos. As imagens Unsplash (agora SVGs inline) dão credibilidade visual. Footer &quot;Global Presence&quot; com Lisbon + Philadelphia está errado — já corrigimos. |
+| Visual Storyteller | 6/10 | Canvas particle network bem implementado. As imagens (SVGs agora) dão escala. Mas a secção &quot;Our Value Proposition&quot; tem um SVG gigante da marca que parece deslocado. |
+| Content Creator | 5/10 | &quot;Strictly independent advisory with a deep technological pedigree&quot; — isto é bom copy. Mas &quot;LET&#x27;S DISCUSS STRATEGY&quot; é demasiado genérico. &quot;Plataform Strategy Advisory&quot; como badge — advisory outra vez. |
+| PR &amp; Comms | 4/10 | Footer diz &quot;© 2026 Govantis Advisory&quot; — O SUFIXO &quot;ADVISORY&quot; AINDA ESTÁ LÁ. Remove. Email é contact@govantis.pt mas devia ser info@govantis.pt. LinkedIn link não tem URL real. |
+| **Média** | **5.5/10** | |
+
+**O que a indústria vê**: Site visualmente mais credível que v1. Mas o logo diferente cria confusão. &quot;Advisory&quot; no footer contradiz o reposicionamento. LinkedIn sem link real = amador.
+
+---
+
+### v3 (HTML) — &quot;Platform Strategy &amp; AI-Native Execution&quot;
+
+| Agente | Nota | Comentário |
+|---|---|---|
+| Brand Guardian | 6/10 | Logo duplo-quadrado consistente. Teal nos sítios certos. Gradiente no H1. &quot;GOVANTIS&quot; em caps no header. Bom. Mas &quot;European advisory&quot; no hero — advisory outra vez. |
+| UX Architect | 7/10 | Grid 2-col + 3-col. Glass cards. Fade-up reveals. Container 1200px. Boa arquitetura. Mas secção &quot;Why Govantis&quot; tem 3 cards com números 01/02/03 que competem visualmente com os pillars. |
+| UI Designer | 8/10 | Glassmorphism bem executado. Tipografia com clamp() responsivo. Estados hover nos cards. Version switcher no canto. Bom polish. |
+| Visual Storyteller | 7/10 | Canvas + SVG infra image. Pulse animations no hero. Fade-ups com staggered delay. O logo anima no scroll — isto é distintivo. |
+| Content Creator | 6/10 | 3 pillars com tecnologias específicas (RDK, prplOS, OpenWrt). Bom. Mas &quot;European advisory&quot; e &quot;C-Level Advisory &amp; Execution&quot; — o &quot;Advisory&quot; ainda aparece 3 vezes. A descrição &quot;governance-first AI integration&quot; — o que é &quot;governance-first&quot;? |
+| PR &amp; Comms | 5/10 | &quot;Let&#x27;s Talk&quot; é melhor que &quot;Let&#x27;s Discuss Strategy&quot;. Mas o CTA card diz &quot;Let&#x27;s Discuss Your Platform Strategy.&quot; — inconsistência. &quot;Whether you&#x27;re a CEO evaluating AI readiness or a CTO planning a platform migration&quot; — EXCLUI OUTROS STAKEHOLDERS. |
+| **Média** | **6.5/10** | |
+
+**O que a indústria vê**: Site profissional. Design coeso. Mas a fixação em &quot;Advisory&quot; e o CTA CEO/CTO-exclusivo limitam o alcance. Uma operadora média tem 20+ stakeholders que influenciam decisões de plataforma — o site só fala com 2.
+
+---
+
+### v4 (HTML) — &quot;From Platform Complexity to Business Outcomes&quot;
+
+| Agente | Nota | Comentário |
+|---|---|---|
+| Brand Guardian | 8/10 | Logo consistente. Cor teal. Gradiente no H1. Monospace nas labels (JetBrains Mono) — toque técnico. &quot;Independent Platform Strategy&quot; como badge — sem &quot;Advisory&quot;. Bom progresso. |
+| UX Architect | 8/10 | 6 secções bem estruturadas. Grid 4-col para stakeholders (colapsa em mobile). Processo em 3 passos com numeração forte. Stats com 3 valores. Navegação com 5 items — correcto. |
+| UI Designer | 8/10 | Glass cards compactos. Stakeholder cards com ícones gradiente. Botões primário + outline. Tipografia mono para dados. Polished. |
+| Visual Storyteller | 8/10 | Canvas + 2 SVGs inline. 2 pulse animations no hero (12s/14s — mais calmo que v3). Fade-up reveals. Imagens em ambas as secções (heritage + how-we-work). |
+| Content Creator | 9/10 | &quot;We Translate Platform Complexity into Business Outcomes&quot; — este é O headline. Abrangente. Sem filtering. &quot;Built by engineers who shaped the platforms you rely on&quot; — credível. &quot;We didn&#x27;t learn telecom from slide decks&quot; — humano. &quot;Outcomes over hours&quot; — posicionamento claro. &quot;Engineers at the Table&quot; — diferenciação real. |
+| PR &amp; Comms | 8/10 | &quot;Who It&#x27;s For&quot; é a melhor adição. 4 stakeholders + nota de rodapé com mais 5. &quot;No matter your role or your challenge&quot; — inclusivo. &quot;See Where You Fit&quot; — CTA inteligente. &quot;We don&#x27;t deliver 200-slide decks and disappear&quot; — transparente. |
+| **Média** | **8.2/10** | |
+
+**O que a indústria vê**: Uma empresa que sabe exactamente o que faz e para quem. Site maduro, sem promessas vazias. A secção &quot;Who It&#x27;s For&quot; elimina a barreira do &quot;será que isto é para mim?&quot;. O tom é directo sem ser arrogante. A parte técnica (RDK, prplOS, OpenWrt) mostra profundidade real.
+
+---
+
+## 3. INCONSISTÊNCIAS CRÍTICAS QUE AINDA EXISTEM
+
+| # | Problema | Onde | Impacto |
+|---|---|---|---|
+| 1 | **v2 tem um logo diferente** (escudos SVG) | v2 apenas | Confusão de marca. Visitante vê v2 → pensa que é outra empresa |
+| 2 | **v2 footer diz &quot;Govantis Advisory&quot;** | v2 | Contradiz o rebranding. Advisory foi removido |
+| 3 | **v2 email é contact@govantis.pt** | v2 | Devia ser info@govantis.pt como nas outras versões |
+| 4 | **v2 LinkedIn não tem URL real** | v2 | Botão morto. Parece amador |
+| 5 | **v1 &quot;View Case Studies&quot; não tem link** | v1 | Promessa vazia. Queima credibilidade |
+| 6 | **v1 email href é contact@govantis.com** | v1 | Domínio errado. Já corrigimos o texto, mas o href? |
+| 7 | **v4 usa teal #2dd4bf, v1 usa blue #3b82f6** | v1 vs v3/v4 | Duas cores primárias diferentes na mesma marca |
+| 8 | **Nenhuma versão tem página de privacidade/cookies** | Todas | Não conformidade GDPR para empresa europeia |
+
+---
+
+## 4. DIAGNÓSTICO FINAL — COMO A INDÚSTRIA VÊ A GOVANTIS
+
+### O que funciona (e deve ser mantido)
+- **Credibilidade técnica**: Nomear tecnologias específicas (RDK, prplOS, OpenWrt, Android TV) funciona. Mostra que não somos generalistas.
+- **Nomes de operadoras**: Deutsche Telekom, Vodafone, BT, NOS — isto projeta escala e seriedade.
+- **Independência**: &quot;Vendor agnostic&quot; e &quot;No parent vendor&quot; é um diferenciador real num mercado cheio de system integrators que revendem licenças.
+- **Tom directo**: v4 acertou no tom. &quot;We didn&#x27;t learn telecom from slide decks&quot; é memorável.
+- **v4 como flagship**: A versão 4 é a que deve ser promovida a homepage principal.
+
+### O que não funciona (e prejudica a percepção)
+- **Inconsistência de marca**: 2 logos, 2 esquemas de cor, emails diferentes. Uma empresa que não consegue manter o próprio site consistente — como vai gerir a plataforma de uma operadora?
+- **&quot;Advisory&quot; fantasma**: Aparece em v1, v2, v3. Se a decisão foi remover, remove em todo o lado.
+- **Promessas vazias**: &quot;View Case Studies&quot; sem case studies. &quot;LinkedIn&quot; sem URL. Isto parece startup em fase inicial, não uma empresa com décadas de experiência.
+- **v1 vs o resto**: v1 foi a primeira versão e está ultrapassada. Mas um visitante pode chegar lá pelo version switcher. Devia ser deprecated ou redirecionada.
+
+### O que falta (e a indústria espera ver)
+- **Case studies reais**: Sem eles, somos uma empresa que fala do que fez mas não mostra. 1 case study bem escrito &gt; 10 claims genéricas.
+- **Nomes de pessoas**: Quem são os fundadores? Quem são os engenheiros? A indústria de telecom é pequena — as pessoas compram a pessoas.
+- **Página de privacidade/GDPR**: Empresa europeia sem isto = não-levada-a-sério por procurement departments.
+- **Prova social**: Logos de clientes (com permissão). Testemunhos. Whitepapers. Algo que um procurement manager possa pôr num slide.
+- **HTACCESS/redirecionamento**: `www.govantis.pt` → versão principal. Neste momento o `/` mostra um seletor de versões — isto é uma ferramenta interna, não uma homepage.
+
+---
+
+## 5. RECOMENDAÇÕES — PERFECT MATCH
+
+### Imediatas (esta semana)
+1. **Substituir v2 pelo logo duplo-quadrado** — unificar a marca
+2. **Corrigir emails** em v1 e v2 — tudo info@govantis.pt
+3. **Corrigir footer v2** — remover &quot;Advisory&quot;, adicionar morada correcta
+4. **Remover &quot;View Case Studies&quot; da v1** ou adicionar link real
+5. **Adicionar GDPR/privacy** em todas as versões
+6. **Unificar cores**: decidir entre teal (#2dd4bf) para todas as versões ou criar paleta documentada
+
+### Curto prazo (2-4 semanas)
+7. **Fazer de v4 a homepage principal** — `www.govantis.pt` → v4. O seletor de versões vai para `/versions/`
+8. **Adicionar página &quot;Team&quot;** — fotos, nomes, background. Telecom é relação-based business.
+9. **Escrever 1 case study** — anonimizado se necessário, mas real. Com resultados mensuráveis.
+10. **Registar a marca do logo duplo-quadrado** — INPI / EUIPO
+
+### Médio prazo (1-3 meses)
+11. **Deprecar v1 e v2** — redirecionar para v4 com banner &quot;Esta é uma versão arquivada&quot;
+12. **HTTPS forçado** — já está true no GitHub Pages, mas confirmar
+13. **Google Workspace**: configurar email info@govantis.pt, upload do logo no Admin Console
+14. **LinkedIn Page**: criar página de empresa, publicar conteúdo regularmente
+15. **Google Analytics**: medir tráfego, taxas de conversão por stakeholder
+
+---
+
+## 6. O LOGO COMO MARCA REGISTÁVEL
+
+O logo duplo-quadrado é **registável como marca figurativa** porque:
+- É distintivo (dois quadrados sobrepostos com contra-rotação)
+- Não é descritivo do serviço
+- É reproduzível em qualquer escala (SVG vectorial)
+- Funciona a 1 cor (silhueta), a 2 cores (teal + dark), e em negativo (branco sobre escuro)
+
+**Passos para registo**:
+1. INPI (Portugal) — marca nacional, ~€130
+2. EUIPO (UE) — marca comunitária, ~€850
+3. Classes Nice: 42 (serviços tecnológicos), 35 (consultoria de gestão)
+
+---
+
+*Análise conduzida por Brand Guardian (🎨), UX Architect (📐), UI Designer (🎨), Visual Storyteller (🎬), Content Creator (✍️), PR &amp; Communications Manager (📣). Modo: verdade sem filtro.*
+</pre></body></html>
