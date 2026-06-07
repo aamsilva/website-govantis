@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Govantis | Platform Strategy & AI-Native Execution</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --bg-card: rgba(15, 23, 42, 0.6);
+            --bg-lighter: rgba(30, 41, 59, 0.5);
+            --accent-teal: #2dd4bf;
+            --accent-teal-glow: rgba(45, 212, 191, 0.15);
+            --accent-blue: #3b82f6;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #network-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 0%, #0f172a 0%, var(--bg-dark) 80%);
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(180deg, rgba(2,6,23,0.3) 0%, rgba(2,6,23,0.8) 100%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        p {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .section-padding {
+            padding: 120px 0;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(2, 6, 23, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-teal-glow) 0%, transparent 60%);
+            z-index: 0;
+            animation: pulseGlow 8s infinite alternate ease-in-out;
+            pointer-events: none;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.3; transform: scale(0.9) translate(0, 0); }
+            100% { opacity: 0.7; transform: scale(1.1) translate(-20px, 20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--accent-teal) 0%, #14b8a6 100%);
+            color: #020617;
+            font-weight: 700;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            box-shadow: 0 10px 20px rgba(45, 212, 191, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(45, 212, 191, 0.4);
+            color: #020617;
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .image-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-container::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(2,6,23,0.8) 0%, transparent 50%);
+        }
+
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .partner-logo {
+            background: rgba(30, 41, 59, 0.4);
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            border-color: var(--accent-teal);
+            color: var(--text-main);
+            background: rgba(45, 212, 191, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h4 {
+            color: var(--accent-teal);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pillar-card {
+            padding: 40px;
+            border-top: 4px solid var(--accent-teal);
+            transition: all 0.4s ease;
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-teal);
+            box-shadow: 0 15px 40px rgba(45, 212, 191, 0.15);
+            background: rgba(30, 41, 59, 0.6);
+        }
+
+        .pillar-card i {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .pillar-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .brand-showcase {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .brand-showcase::after {
+            content: '';
+            position: absolute;
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--accent-teal-glow) 0%, transparent 70%);
+            z-index: 0;
+            animation: pulseGlow 6s infinite alternate ease-in-out;
+        }
+
+        .brand-showcase svg {
+            width: 240px;
+            height: 240px;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-item h3 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 5px;
+            line-height: 1;
+        }
+
+        .infra-images {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .infra-img {
+            height: 240px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .infra-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .infra-img:hover img {
+            opacity: 1;
+        }
+
+        footer {
+            background: rgba(2, 6, 23, 0.95);
+            padding: 60px 0;
+            border-top: 1px solid var(--border-color);
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        .footer-brand p {
+            max-width: 300px;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .footer-links p, .footer-links a {
+            display: block;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-teal);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .grid-2, .pillars-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="network-canvas"></canvas>
+    <div class="bg-overlay"></div>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo-text">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 28px; height: 28px;">
+                        <defs>
+                            <mask id="headerCutout">
+                                <rect width="100" height="100" fill="white"/>
+                                <path d="M55 35H65V50C65 60 60 70 60 70C60 70 55 60 55 50V35Z" fill="black"/>
+                            </mask>
+                        </defs>
+                        <path d="M20 15H60V45C60 65 40 85 40 85C40 85 20 65 20 45V15Z" fill="currentColor"/>
+                        <path d="M40 25H80V55C80 75 60 95 60 95C60 95 40 75 40 55V25Z" fill="var(--accent-teal)" mask="url(#headerCutout)"/>
+                    </svg>
+                </div>
+                Govantis
+            </a>
+            <nav class="nav-links">
+                <a href="#heritage">Heritage</a>
+                <a href="#expertise">Expertise</a>
+                <a href="#impact">Impact</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h4 style="color: var(--accent-teal); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 20px;">Platform Strategy Advisory</h4>
+                <h1>Bridging Platform Strategy with <span class="highlight">AI-Native Execution.</span></h1>
+                <p>Governance, complex delivery, and predictive intelligence for critical telecom infrastructures. Strictly independent advisory with a deep technological pedigree.</p>
+                <a href="#contact" class="cta-btn">Let's Discuss Strategy</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="heritage" class="heritage section-padding">
+        <div class="container grid-2">
+            <div class="fade-in">
+                <h2>Decades of Deep Tech & <span class="highlight">Telecom Heritage.</span></h2>
+                <p>Govantis was born from direct experience at the forefront of global telecom transformation. Our founding team brings a proven track record in defining critical architectures, platform governance, and AI transformation alongside the world's largest players.</p>
+                <p>We bridge the gap between high-level strategy and the harsh reality of field execution.</p>
+                
+                <div class="logo-grid">
+                    <div class="partner-logo">Deutsche Telekom</div>
+                    <div class="partner-logo">Vodafone</div>
+                    <div class="partner-logo">BT</div>
+                    <div class="partner-logo">NOS</div>
+                    <div class="partner-logo">prpl Foundation</div>
+                    <div class="partner-logo">RDK</div>
+                </div>
+            </div>
+            
+            <div class="fade-in">
+                <div class="image-container glass-card">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200" alt="Telecom Server Infrastructure">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="section-padding">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h4>Core Capabilities</h4>
+                <h2>The Three Pillars of Govantis</h2>
+            </div>
+            <div class="pillars-grid">
+                <div class="pillar-card glass-card fade-in">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Governance & Strategy</h3>
+                    <p>Robust frameworks for telecom platform ecosystems. We provide strictly independent C-level advisory and multi-operator program management, ensuring flawless alignment between business vision and operational reality.</p>
+                </div>
+                <div class="pillar-card glass-card fade-in" style="transition-delay: 0.1s;">
+                    <i class="fa-solid fa-microchip"></i>
+                    <h3>Complex Delivery</h3>
+                    <p>End-to-end execution capabilities. We master the extreme complexity of RDK, Android, prplOS, and OpenWrt ecosystems, guaranteeing the delivery of critical broadband, TV, and connectivity projects.</p>
+                </div>
+                <div class="pillar-card glass-card fade-in" style="transition-delay: 0.2s;">
+                    <i class="fa-solid fa-brain"></i>
+                    <h3>AI Products</h3>
+                    <p>Predictive intelligence solutions designed specifically for critical infrastructure. From optimizing transoceanic submarine cables and access networks to highly efficient edge computing deployments.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="value-prop section-padding">
+        <div class="container grid-2">
+            <div class="fade-in infra-images">
+                <div class="infra-img glass-card">
+                    <img src="https://images.unsplash.com/photo-1620825937374-87fc7d62828e?auto=format&fit=crop&q=80&w=1000" alt="AI Neural Data Network">
+                </div>
+                <div class="brand-showcase glass-card">
+                    <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <mask id="showcaseCutout">
+                                <rect width="100" height="100" fill="white"/>
+                                <path d="M55 35H65V50C65 60 60 70 60 70C60 70 55 60 55 50V35Z" fill="black"/>
+                            </mask>
+                        </defs>
+                        <path d="M20 15H60V45C60 65 40 85 40 85C40 85 20 65 20 45V15Z" fill="var(--text-main)"/>
+                        <path d="M40 25H80V55C80 75 60 95 60 95C60 95 40 75 40 55V25Z" fill="var(--accent-teal)" mask="url(#showcaseCutout)"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="fade-in">
+                <h4>Our Value Proposition</h4>
+                <h2>Unmatched Technical Depth. <br><span class="highlight">Unbiased Impact.</span></h2>
+                <p>We are not merely strategic advisors; we are engineers and builders at heart. Govantis stands as the trusted partner capable of mastering the link between high-level platform strategy and rigorous field execution.</p>
+                <p>We offer a level of technical depth rarely found in traditional consulting firms, maintaining total vendor independence to focus solely on what generates real, measurable business impact.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Vendor Independence</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>C-Level</h3>
+                        <p>Advisory & Execution</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo-text">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 20px; height: 20px;">
+                            <path d="M20 15H60V45C60 65 40 85 40 85C40 85 20 65 20 45V15Z" fill="currentColor"/>
+                            <path d="M40 25H80V55C80 75 60 95 60 95C60 95 40 75 40 55V25Z" fill="var(--accent-teal)" opacity="0.8"/>
+                        </svg>
+                    </div>
+                    Govantis
+                </a>
+                <p>Bridging Platform Strategy with AI-Native Execution. Independent advisory for critical telecom infrastructures.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Global Presence</h4>
+                <p><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--accent-teal);"></i> Lisbon, Portugal</p>
+                <p><i class="fa-solid fa-location-dot" style="margin-right: 8px; color: var(--accent-teal);"></i> Philadelphia, USA</p>
+            </div>
+            <div class="footer-links">
+                <h4>Connect</h4>
+                <a href="mailto:contact@govantis.pt"><i class="fa-solid fa-envelope" style="margin-right: 8px;"></i> contact@govantis.pt</a>
+                <a href="#"><i class="fa-brands fa-linkedin" style="margin-right: 8px;"></i> LinkedIn Page</a>
+            </div>
+        </div>
+        <div class="container" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+            &copy; 2026 Govantis Advisory. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
+        });
+
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        const connectionDistance = 150;
+        
+        function resize() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+        }
+        
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if(this.x < 0 || this.x > width) this.vx = -this.vx;
+                if(this.y < 0 || this.y > height) this.vy = -this.vy;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(45, 212, 191, 0.4)';
+                ctx.fill();
+            }
+        }
+
+        const particleCount = Math.min(Math.floor((window.innerWidth * window.innerHeight) / 15000), 100);
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+                
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        const opacity = 1 - (distance / connectionDistance);
+                        ctx.strokeStyle = `rgba(45, 212, 191, ${opacity * 0.15})`;
+                        ctx.lineWidth = 1;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+    </script>
+</body>
+</html>
