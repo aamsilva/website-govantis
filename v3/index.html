@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Govantis — Bridging Platform Strategy with AI-Native Execution. European advisory with global reach. info@govantis.pt">
+    <title>Govantis — Platform Strategy & AI-Native Execution</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* ========================================
+           GOVANTIS v3.0 — DESIGN SYSTEM
+           Agency Agents: Brand Guardian + UX Architect + UI Designer
+           ======================================== */
+
+        /* --- Design Tokens (UX Architect) --- */
+        :root {
+            --bg-deep: #020617;
+            --bg-surface: rgba(15, 23, 42, 0.6);
+            --bg-elevated: rgba(30, 41, 59, 0.5);
+            --accent-teal: #2dd4bf;
+            --accent-teal-glow: rgba(45, 212, 191, 0.08);
+            --accent-blue: #3b82f6;
+            --accent-blue-glow: rgba(59, 130, 246, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-medium: rgba(255, 255, 255, 0.10);
+            --border-active: rgba(45, 212, 191, 0.30);
+            --space-1: 0.25rem; --space-2: 0.5rem; --space-3: 0.75rem; --space-4: 1rem;
+            --space-6: 1.5rem; --space-8: 2rem; --space-12: 3rem; --space-16: 4rem; --space-24: 6rem;
+            --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px;
+            --transition-fast: 0.15s ease; --transition-base: 0.3s ease; --transition-slow: 0.6s ease;
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        /* --- Reset & Base (UX Architect) --- */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Canvas Background (Visual Storyteller — v2 heritage) --- */
+        #network-canvas {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -2;
+            background: radial-gradient(circle at 50% 0%, #0f172a 0%, var(--bg-deep) 80%);
+        }
+        .bg-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: linear-gradient(180deg, rgba(2,6,23,0.2) 0%, rgba(2,6,23,0.85) 100%);
+            z-index: -1; pointer-events: none;
+        }
+
+        /* --- Typography (Brand Guardian) --- */
+        h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+        h1 { font-size: clamp(2.5rem, 6vw, 5rem); }
+        h2 { font-size: clamp(1.8rem, 4vw, 2.75rem); }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.75rem); }
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-blue) 70%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            background-clip: text; color: transparent; font-weight: 800;
+        }
+        .section-label {
+            color: var(--accent-teal); text-transform: uppercase; letter-spacing: 0.15em;
+            font-size: 0.8rem; font-weight: 600; margin-bottom: var(--space-3);
+        }
+
+        /* --- Layout (UX Architect) --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 5%; position: relative; z-index: 10; }
+        .section { padding: var(--space-24) 0; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-12); align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-8); }
+        @media (max-width: 992px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+        /* --- Glass Card (UI Designer) --- */
+        .glass {
+            background: var(--bg-surface);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.4);
+        }
+
+        /* ========================================
+           HEADER (Brand Guardian + UI Designer)
+           ======================================== */
+        .header {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+            padding: 16px 0;
+            background: rgba(2,6,23,0.75);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: background var(--transition-base);
+        }
+        .header .container { display: flex; justify-content: space-between; align-items: center; }
+
+        /* --- Animated Logo (v1 heritage) --- */
+        .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
+        .logo-mark {
+            position: relative; width: 32px; height: 32px;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .logo-mark .rotator {
+            position: absolute; inset: 0;
+            border: 2px solid var(--accent-teal);
+            border-radius: 6px;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .logo-mark.animate .rotator {
+            transform: rotate(90deg);
+        }
+        .logo-mark .inner-square {
+            width: 14px; height: 14px;
+            border: 2px solid var(--accent-teal);
+            border-radius: 3px;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .logo-mark.animate .inner-square {
+            transform: rotate(-90deg);
+        }
+        .logo-text { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+
+        .nav { display: flex; gap: 32px; }
+        .nav a {
+            font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);
+            text-transform: uppercase; letter-spacing: 0.05em; transition: color var(--transition-fast);
+        }
+        .nav a:hover { color: var(--accent-teal); }
+        .nav a.cta-nav {
+            padding: 8px 20px; border: 1px solid var(--accent-teal);
+            border-radius: 100px; color: var(--accent-teal);
+        }
+        .nav a.cta-nav:hover { background: var(--accent-teal); color: var(--bg-deep); }
+        @media (max-width: 768px) { .nav { display: none; } }
+
+        /* ========================================
+           HERO (Visual Storyteller + Content Creator)
+           ======================================== */
+        .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 80px; position: relative; }
+        .hero::before {
+            content: ''; position: absolute; top: -10%; right: -10%;
+            width: 700px; height: 700px;
+            background: radial-gradient(circle, var(--accent-teal-glow) 0%, transparent 60%);
+            animation: heroPulse 10s infinite alternate ease-in-out; pointer-events: none; z-index: 0;
+        }
+        .hero::after {
+            content: ''; position: absolute; bottom: -5%; left: -5%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--accent-blue-glow) 0%, transparent 60%);
+            animation: heroPulse 12s infinite alternate-reverse ease-in-out; pointer-events: none; z-index: 0;
+        }
+        @keyframes heroPulse {
+            0% { opacity: 0.3; transform: scale(0.9) translate(0,0); }
+            100% { opacity: 0.7; transform: scale(1.1) translate(-30px,30px); }
+        }
+        .hero-content { position: relative; z-index: 1; max-width: 750px; }
+        .hero p { font-size: clamp(1rem, 2vw, 1.25rem); color: var(--text-secondary); max-width: 580px; margin-bottom: var(--space-8); font-weight: 400; }
+        .hero-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--accent-teal) 0%, #14b8a6 100%);
+            color: var(--bg-deep); font-weight: 700; font-size: 0.95rem;
+            border: none; border-radius: var(--radius-sm); cursor: pointer;
+            text-transform: uppercase; letter-spacing: 0.04em;
+            box-shadow: 0 12px 30px rgba(45, 212, 191, 0.2);
+            transition: all var(--transition-base);
+        }
+        .hero-btn:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(45, 212, 191, 0.35); }
+
+        /* ========================================
+           HERITAGE — Who We Are (Visual Storyteller)
+           ======================================== */
+        .heritage-image {
+            height: 450px; border-radius: var(--radius-lg); overflow: hidden;
+            border: 1px solid var(--border-medium);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5); position: relative;
+        }
+        .heritage-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+        .heritage-image:hover img { transform: scale(1.04); }
+        .heritage-image::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(0deg, rgba(2,6,23,0.7) 0%, transparent 50%);
+        }
+        .partner-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: var(--space-6); }
+        .partner {
+            background: rgba(30,41,59,0.4); padding: 14px 12px; border-radius: var(--radius-sm);
+            text-align: center; font-weight: 600; font-size: 0.85rem; color: #cbd5e1;
+            border: 1px solid var(--border-medium);
+            transition: all var(--transition-base);
+        }
+        .partner:hover {
+            border-color: var(--accent-teal); color: var(--text-primary);
+            background: rgba(45,212,191,0.08); transform: translateY(-2px);
+        }
+        .stat { margin-top: var(--space-8); display: flex; gap: var(--space-12); }
+        .stat-item .stat-number {
+            font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            line-height: 1;
+        }
+        .stat-item .stat-label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+        /* ========================================
+           PILLARS — What We Do (Content Creator)
+           ======================================== */
+        .section-header { text-align: center; max-width: 600px; margin: 0 auto var(--space-16); }
+        .pillar { padding: var(--space-8); border-top: 3px solid var(--accent-teal); transition: all 0.4s ease; }
+        .pillar:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-teal);
+            box-shadow: 0 20px 50px rgba(45,212,191,0.1);
+            background: rgba(30,41,59,0.6);
+        }
+        .pillar-icon {
+            font-size: 2rem; margin-bottom: var(--space-4);
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .pillar h3 { margin-bottom: var(--space-3); }
+        .pillar p { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.7; }
+
+        /* ========================================
+           PROPOSITION — What We Propose (PR & Comms Manager)
+           ======================================== */
+        .prop-section { position: relative; overflow: hidden; }
+        .prop-section::before {
+            content: ''; position: absolute; top: 30%; right: -10%;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, var(--accent-teal-glow) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .prop-card {
+            padding: var(--space-8); text-align: center;
+            transition: all var(--transition-base);
+        }
+        .prop-card:hover { border-color: var(--accent-teal); transform: translateY(-4px); }
+        .prop-card .number {
+            font-size: 3.5rem; font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        /* ========================================
+           CONTACT / CTA (PR & Comms Manager)
+           ======================================== */
+        .cta-section { text-align: center; padding: var(--space-24) 0; }
+        .cta-section .glass {
+            display: inline-block; padding: var(--space-12);
+            border: 1px solid var(--border-active);
+            max-width: 600px;
+        }
+
+        /* ========================================
+           FOOTER (Brand Guardian)
+           ======================================== */
+        .footer {
+            padding: var(--space-12) 0 var(--space-8);
+            border-top: 1px solid var(--border-subtle);
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--space-8); }
+        .footer-grid h4 { font-size: 0.95rem; margin-bottom: var(--space-4); color: var(--text-primary); }
+        .footer-grid p, .footer-grid a {
+            display: block; color: var(--text-muted); font-size: 0.875rem;
+            margin-bottom: var(--space-2); transition: color var(--transition-fast);
+        }
+        .footer-grid a:hover { color: var(--accent-teal); }
+        .footer-bottom {
+            margin-top: var(--space-8); padding-top: var(--space-4);
+            border-top: 1px solid var(--border-subtle);
+            text-align: center; color: var(--text-muted); font-size: 0.8rem;
+        }
+        @media (max-width: 768px) { .footer-grid { grid-template-columns: 1fr; } }
+
+        /* ========================================
+           ANIMATIONS (Visual Storyteller)
+           ======================================== */
+        .fade-up {
+            opacity: 0; transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-up[style*="transition-delay"] { transition-delay: var(--delay, 0ms); }
+
+        /* ========================================
+           VERSION SWITCHER (UX Architect)
+           ======================================== */
+        .version-switch {
+            position: fixed; bottom: var(--space-4); right: var(--space-4); z-index: 999;
+        }
+        .version-switch button {
+            background: var(--bg-elevated); border: 1px solid var(--border-medium);
+            color: var(--text-muted); padding: 8px 14px; border-radius: var(--radius-sm);
+            cursor: pointer; font-size: 0.75rem; font-family: var(--font-sans);
+            transition: all var(--transition-fast);
+        }
+        .version-switch button:hover { border-color: var(--accent-teal); color: var(--accent-teal); }
+    </style>
+</head>
+<body>
+
+    <canvas id="network-canvas"></canvas>
+    <div class="bg-overlay"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo" id="logo">
+                <div class="logo-mark" id="logoMark">
+                    <div class="rotator"></div>
+                    <div class="inner-square"></div>
+                </div>
+                <span class="logo-text">GOVANTIS</span>
+            </a>
+            <nav class="nav">
+                <a href="#who">Who We Are</a>
+                <a href="#what">What We Do</a>
+                <a href="#why">Why Govantis</a>
+                <a href="#contact" class="cta-nav">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-up">
+                <p class="section-label">Platform Strategy Advisory</p>
+                <h1>Bridging Platform Strategy with <span class="gradient-text">AI-Native Execution.</span></h1>
+                <p>Governance, complex delivery, and predictive intelligence for critical telecom infrastructure. European advisory with global reach.</p>
+                <a href="#contact" class="hero-btn">Let's Talk<i class="fa-solid fa-arrow-right" style="font-size: 0.8rem;"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who We Are -->
+    <section id="who" class="section">
+        <div class="container grid-2">
+            <div class="fade-up">
+                <p class="section-label">Who We Are</p>
+                <h2>Decades of Deep Tech & <span class="gradient-text">Telecom Heritage.</span></h2>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: var(--space-4);">
+                    Govantis was built by engineers and strategists who shaped platform architectures at Deutsche Telekom, Vodafone, BT, and NOS. We bring direct experience from the RDK ecosystem and prpl Foundation — not second-hand knowledge.
+                </p>
+                <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: var(--space-6);">
+                    European company, global operations. Offices in Lisbon and Philadelphia. We work where our clients need us — from operator boardrooms to engineering war rooms.
+                </p>
+                <div class="partner-grid">
+                    <div class="partner">Deutsche Telekom</div>
+                    <div class="partner">Vodafone</div>
+                    <div class="partner">BT</div>
+                    <div class="partner">NOS</div>
+                    <div class="partner">prpl Foundation</div>
+                    <div class="partner">RDK</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-item"><div class="stat-number">100%</div><div class="stat-label">Vendor Independent</div></div>
+                    <div class="stat-item"><div class="stat-number">C-Level</div><div class="stat-label">Advisory & Execution</div></div>
+                </div>
+            </div>
+            <div class="fade-up" style="--delay: 150ms;">
+                <div class="heritage-image glass">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1200" alt="Telecom infrastructure" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do — 3 Pillars -->
+    <section id="what" class="section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-label">What We Do</p>
+                <h2>Three Pillars. <span class="gradient-text">One Mission.</span></h2>
+                <p style="color: var(--text-secondary); margin-top: var(--space-2);">
+                    Independent, technically-grounded advisory and execution across the full platform lifecycle.
+                </p>
+            </div>
+            <div class="grid-3">
+                <div class="pillar glass fade-up">
+                    <div class="pillar-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Governance & Strategy</h3>
+                    <p>C-level advisory independent of any vendor. We design governance frameworks for telecom platform ecosystems and manage multi-operator programs where alignment between business vision and operational reality is critical.</p>
+                    <p style="margin-top: var(--space-4); font-size: 0.85rem; color: var(--accent-teal); font-weight: 500;">AI Readiness · Platform Monetization · Regulatory Compliance</p>
+                </div>
+                <div class="pillar glass fade-up" style="--delay: 100ms;">
+                    <div class="pillar-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>Complex Delivery</h3>
+                    <p>End-to-end execution across RDK, Android TV, prplOS, and OpenWrt ecosystems. We deliver broadband, TV, and connectivity projects where failure is not an option — from architecture to deployment.</p>
+                    <p style="margin-top: var(--space-4); font-size: 0.85rem; color: var(--accent-teal); font-weight: 500;">RDK & Android TV · prplOS & OpenWrt · Cloud-Native Migration</p>
+                </div>
+                <div class="pillar glass fade-up" style="--delay: 200ms;">
+                    <div class="pillar-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>AI Products</h3>
+                    <p>Predictive intelligence built for critical infrastructure — not generic models. From submarine cable optimization to edge computing deployments, we build AI that operators trust with their networks.</p>
+                    <p style="margin-top: var(--space-4); font-size: 0.85rem; color: var(--accent-teal); font-weight: 500;">Predictive Maintenance · Network Optimization · Edge AI</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Govantis — Value Proposition -->
+    <section id="why" class="section prop-section">
+        <div class="container">
+            <div class="section-header fade-up">
+                <p class="section-label">Why Govantis</p>
+                <h2>Technical Depth the Market <span class="gradient-text">Rarely Finds.</span></h2>
+                <p style="color: var(--text-secondary); margin-top: var(--space-2);">
+                    We bridge the gap between high-level strategy and the harsh reality of field execution. 
+                </p>
+            </div>
+            <div class="grid-3">
+                <div class="prop-card glass fade-up">
+                    <div class="number">01</div>
+                    <h3 style="margin-bottom: var(--space-2);">Vendor Agnostic</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">We don't sell licenses. We sell results. Every recommendation is based on technical merit and measurable business impact.</p>
+                </div>
+                <div class="prop-card glass fade-up" style="--delay: 100ms;">
+                    <div class="number">02</div>
+                    <h3 style="margin-bottom: var(--space-2);">Engineers, Not Just Advisors</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">Our team has deployed platforms at scale. We understand the complexity because we've lived it — from architecture reviews to production debugging.</p>
+                </div>
+                <div class="prop-card glass fade-up" style="--delay: 200ms;">
+                    <div class="number">03</div>
+                    <h3 style="margin-bottom: var(--space-2);">Global, Independent</h3>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">European company with operations in Lisbon and Philadelphia. No parent vendor. No hidden agenda. Just technical excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+        <div class="container fade-up">
+            <div class="glass">
+                <p class="section-label">Contact</p>
+                <h2 style="margin-bottom: var(--space-4);">Let's Discuss Your <span class="gradient-text">Platform Strategy.</span></h2>
+                <p style="color: var(--text-secondary); margin-bottom: var(--space-6); font-size: 1.05rem;">
+                    Whether you're a CEO evaluating AI readiness or a CTO planning a platform migration — we speak your language.
+                </p>
+                <a href="mailto:info@govantis.pt" class="hero-btn" style="text-transform: none; font-size: 0.9rem;">
+                    <i class="fa-solid fa-envelope"></i> info@govantis.pt
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="logo" style="cursor: default;">
+                        <div class="logo-mark">
+                            <div class="rotator" style="border-color: var(--accent-teal);"></div>
+                            <div class="inner-square" style="border-color: var(--accent-teal);"></div>
+                        </div>
+                        <span class="logo-text" style="font-size: 1.1rem;">GOVANTIS</span>
+                    </div>
+                    <p style="margin-top: var(--space-3); font-size: 0.85rem;">Bridging Platform Strategy with AI-Native Execution. European advisory with global reach.</p>
+                </div>
+                <div>
+                    <h4>Offices</h4>
+                    <p><i class="fa-solid fa-location-dot" style="margin-right: 6px; color: var(--accent-teal);"></i> Lisbon, Portugal</p>
+                    <p><i class="fa-solid fa-location-dot" style="margin-right: 6px; color: var(--accent-teal);"></i> Philadelphia, USA</p>
+                </div>
+                <div>
+                    <h4>Connect</h4>
+                    <a href="mailto:info@govantis.pt"><i class="fa-solid fa-envelope" style="margin-right: 6px;"></i> info@govantis.pt</a>
+                    <a href="https://linkedin.com/company/govantis"><i class="fa-brands fa-linkedin" style="margin-right: 6px;"></i> LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                &copy; 2026 Govantis. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Version Switcher -->
+    <div class="version-switch">
+        <button onclick="window.location='../v1/'">v1</button>
+        <button onclick="window.location='../v2/'">v2</button>
+    </div>
+
+    <script>
+        // ========================================
+        // LOGO SCROLL ANIMATION (v1 heritage)
+        // Brand Guardian + UI Designer — logo animates on scroll
+        // ========================================
+        const logoMark = document.getElementById('logoMark');
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.scrollY;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                logoMark.classList.add('animate');
+            } else if (currentScroll < lastScroll) {
+                logoMark.classList.remove('animate');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+
+        // ========================================
+        // INTERSECTION OBSERVER — Fade-up animations
+        // Visual Storyteller
+        // ========================================
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { root: null, rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        // ========================================
+        // CANVAS PARTICLE NETWORK (v2 heritage)
+        // Visual Storyteller
+        // ========================================
+        const canvas = document.getElementById('network-canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h, particles = [];
+        const CONN = 150;
+
+        function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; }
+        window.addEventListener('resize', resize);
+        resize();
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * w;
+                this.y = Math.random() * h;
+                this.vx = (Math.random() - 0.5) * 0.4;
+                this.vy = (Math.random() - 0.5) * 0.4;
+                this.r = Math.random() * 1.5 + 0.5;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > w) this.vx *= -1;
+                if (this.y < 0 || this.y > h) this.vy *= -1;
+            }
+            draw() {
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(45,212,191,0.35)'; ctx.fill();
+            }
+        }
+
+        const count = Math.min(Math.floor((w * h) / 18000), 90);
+        for (let i = 0; i < count; i++) particles.push(new Particle());
+
+        function animate() {
+            ctx.clearRect(0, 0, w, h);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update(); particles[i].draw();
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const d = Math.sqrt(dx * dx + dy * dy);
+                    if (d < CONN) {
+                        ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(45,212,191,${(1 - d / CONN) * 0.12})`;
+                        ctx.lineWidth = 1; ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
