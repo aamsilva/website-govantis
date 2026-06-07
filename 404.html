@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-ancestors 'none'; base-uri 'self';">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <title>Page not found — Govantis</title>
     <meta name="description" content="The page you're looking for doesn't exist. Govantis — From Platform Complexity to Business Outcomes.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,6 +34,8 @@
         .metadata { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.06); color: rgba(148,163,184,0.5); font-size: 0.75rem; }
         .metadata a { color: var(--accent); text-decoration: none; opacity: 0.7; }
         .metadata a:hover { opacity: 1; }
+
+        :focus-visible{outline:2px solid #2dd4bf;outline-offset:2px;border-radius:2px}
     </style>
 </head>
 <body>
@@ -54,5 +58,6 @@
             <p>Govantis &mdash; From Platform Complexity to Business Outcomes &middot; <a href="/">govantis.pt</a></p>
         </div>
     </div>
+<p style="text-align:center;margin-top:1rem"><a href="/privacy" style="color:rgba(148,163,184,0.5);text-decoration:none;font-size:.7rem">Privacy Policy</a></p>
 </body>
 </html>
