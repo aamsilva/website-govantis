@@ -249,7 +249,7 @@ If the token is compromised:
 ### Review deployed secrets
 ```bash
 # Check no secrets in deployed files
-grep -r "gho_\|ghp_\|sk-\|eyJ" /tmp/gh-pages-deploy/
+grep -r "TOKEN_PATTERN_1\|TOKEN_PATTERN_2\|sk-\|eyJ" /tmp/gh-pages-deploy/
 # Should return nothing
 ```
 
