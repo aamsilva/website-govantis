@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0;url=v1/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Govantis v1.0</title>
+  <title>Govantis</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #020617; color: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+    .container { text-align: center; }
+    h1 { font-size: 2rem; margin-bottom: 1rem; background: linear-gradient(135deg, #2dd4bf, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p { color: #94a3b8; margin-bottom: 2rem; }
+    .links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .links a { padding: 1rem 2rem; background: rgba(15,23,42,0.6); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; color: #f8fafc; text-decoration: none; font-weight: 600; transition: all 0.3s; }
+    .links a:hover { border-color: #2dd4bf; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(45,212,191,0.15); }
+    .links a small { display: block; color: #64748b; font-weight: 400; margin-top: 4px; font-size: 0.8rem; }
+  </style>
 </head>
 <body>
-  <p><a href="v1/">Govantis v1.0</a></p>
+  <div class="container">
+    <h1>Govantis</h1>
+    <p>Seleciona uma versão para ver o site:</p>
+    <div class="links">
+      <a href="v1/">
+        Versão 1.0
+        <small>React · AI-Native Solutions</small>
+      </a>
+      <a href="v2/">
+        Versão 2.0
+        <small>HTML · Platform Strategy Advisory</small>
+      </a>
+    </div>
+  </div>
 </body>
 </html>
