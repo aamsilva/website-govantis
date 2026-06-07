@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="96" fill="#020617"/>
+  <rect x="12" y="12" width="488" height="488" rx="88" fill="none" stroke="#2dd4bf" stroke-width="4" stroke-opacity="0.15"/>
+  
+  <!-- Outer square (solid, rotated 45°, opacity 0.2) -->
+  <rect x="96" y="96" width="320" height="320" rx="56" fill="#2dd4bf" fill-opacity="0.2" transform="rotate(45 256 256)"/>
+  
+  <!-- Inner square (border-only, rotated 45°) -->
+  <rect x="136" y="136" width="240" height="240" rx="36" fill="none" stroke="#2dd4bf" stroke-width="10" transform="rotate(45 256 256)"/>
+</svg>
