@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Govantis — Platform-to-Outcome Method. AI-native platform strategy for telecom operators. Independent. Engineer-led. info@govantis.pt">
+    <meta name="color-scheme" content="dark light">
+    <title>Govantis — AI-Native Platform Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* =============================================
+           V13 — RESEARCH-DRIVEN + BLUE PALETTE
+           Navy + Electric Blue + Cyan. Plus Jakarta Sans.
+           Problem/Solution framing. Platform-to-Outcome Method.
+           ============================================= */
+
+        :root {
+            --bg: #060b24; --bg-alt: #0a1035;
+            --surface: rgba(10,16,53,0.72); --elevated: rgba(15,22,64,0.68);
+            --accent: #3b82f6; --accent-bright: #60a5fa; --accent-deep: #1d4ed8; --accent-cyan: #06b6d4; --accent-gold: #eab308;
+            --glow: rgba(59,130,246,0.08); --glow-cyan: rgba(6,182,212,0.06);
+            --text: #f1f5f9; --text2: #94a3b8; --text3: #64748b;
+            --border: rgba(255,255,255,0.04); --border-strong: rgba(255,255,255,0.08);
+            --card-bg: rgba(10,16,53,0.72); --card-hover: rgba(15,22,64,0.85);
+            --header-bg: rgba(6,11,36,0.78);
+            --card-shadow: 0 20px 50px -18px rgba(0,0,0,0.5);
+            --canvas-bg: radial-gradient(ellipse at 50% 0%, #0d1640 0%, var(--bg) 80%);
+            --overlay: linear-gradient(180deg, rgba(6,11,36,0.04) 0%, rgba(6,11,36,0.92) 100%);
+            --footer-bg: rgba(6,11,36,0.96);
+            --btn-outline-border: rgba(255,255,255,0.12);
+            --btn-bg: linear-gradient(135deg, var(--accent) 0%, var(--accent-deep) 100%);
+        }
+        @media (prefers-color-scheme: light) {
+            :root {
+                --bg: #f8fafc; --bg-alt: #f1f5f9;
+                --surface: rgba(241,245,249,0.7); --elevated: rgba(255,255,255,0.78);
+                --accent: #2563eb; --accent-bright: #3b82f6; --accent-deep: #1e40af; --accent-cyan: #0891b2; --accent-gold: #ca8a04;
+                --glow: rgba(37,99,235,0.06); --glow-cyan: rgba(8,145,178,0.05);
+                --text: #0f172a; --text2: #475569; --text3: #94a3b8;
+                --border: rgba(0,0,0,0.05); --border-strong: rgba(0,0,0,0.08);
+                --card-bg: rgba(255,255,255,0.84); --card-hover: rgba(255,255,255,0.95);
+                --header-bg: rgba(248,250,252,0.88);
+                --card-shadow: 0 8px 24px -8px rgba(0,0,0,0.05);
+                --canvas-bg: radial-gradient(ellipse at 50% 0%, #e2e8f0 0%, #f8fafc 80%);
+                --overlay: linear-gradient(180deg, rgba(248,250,252,0.1) 0%, rgba(248,250,252,0.92) 100%);
+                --footer-bg: #f1f5f9;
+                --btn-outline-border: rgba(0,0,0,0.10);
+            }
+            body{font-size:1.12rem}
+            h1{font-weight:800}
+            .label{font-weight:600}
+            .pillar{border-top:4px solid var(--accent)}
+        }
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+        html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+        body{font-family:'DM Sans',system-ui,sans-serif;font-weight:400;font-size:1.1rem;background:var(--bg);color:var(--text2);line-height:1.7;overflow-x:hidden;transition:background .5s,color .5s}
+        :focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+        #canvas{position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:-2;background:var(--canvas-bg);transition:background .5s}
+        .canvas-overlay{position:fixed;top:0;left:0;width:100vw;height:100vh;background:var(--overlay);z-index:-1;pointer-events:none;transition:background .5s}
+
+        h1,h2,h3{font-family:'Plus Jakarta Sans',system-ui,sans-serif;font-weight:700;line-height:1.08;letter-spacing:-0.035em;color:var(--text)}
+        h1{font-size:clamp(2.8rem,7.5vw,6.5rem)}
+        h2{font-size:clamp(1.8rem,3.8vw,3rem)}
+        h3{font-size:clamp(1.1rem,1.5vw,1.4rem);font-weight:600}
+        .grad{background:linear-gradient(135deg,var(--accent-bright) 0%,var(--accent-cyan) 50%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;color:transparent}
+        .label{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:500;color:var(--accent);text-transform:uppercase;letter-spacing:.22em;margin-bottom:.7rem}
+        p{font-size:1.1rem;color:var(--text2)}
+
+        .container{max-width:1240px;margin:0 auto;padding:0 6%;position:relative;z-index:10}
+        .sec{padding:clamp(5rem,9vw,8rem) 0}
+        .sec-alt{background:var(--surface);transition:background .5s}
+        .grid2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(3rem,6vw,6rem);align-items:center}
+        .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}
+        @media(max-width:992px){.grid2,.grid3{grid-template-columns:1fr}}
+
+        .header{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:15px 0;background:var(--header-bg);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);border-bottom:1px solid var(--border);transition:background .5s}
+        .header .container{display:flex;justify-content:space-between;align-items:center}
+        .logo{display:flex;align-items:center;gap:12px;cursor:pointer;text-decoration:none}
+        .logo-mark{position:relative;width:30px;height:30px;display:flex;align-items:center;justify-content:center}
+        .logo-mark .outer{position:absolute;inset:0;background:var(--accent);border-radius:6px;transform:rotate(45deg);opacity:.2;transition:transform .5s ease}
+        .logo-mark:hover .outer,.logo-mark.anim .outer{transform:rotate(90deg)}
+        .logo-mark .inner{width:17px;height:17px;border:2.5px solid var(--accent);border-radius:3px;transform:rotate(45deg);transition:transform .5s ease}
+        .logo-mark:hover .inner,.logo-mark.anim .inner{transform:rotate(0deg)}
+        .logo-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.2rem;font-weight:800;letter-spacing:-.02em;color:var(--text)}
+        .nav{display:flex;gap:30px}
+        .nav a{font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:600;color:var(--text3);text-transform:uppercase;letter-spacing:.08em;transition:color .15s;text-decoration:none}
+        .nav a:hover{color:var(--accent-bright)}
+        .nav a.cta-link{padding:8px 22px;border:2px solid var(--accent);border-radius:100px;color:var(--accent-bright)}
+        .nav a.cta-link:hover{background:var(--accent);color:#fff}
+        @media(max-width:768px){.nav{display:none}}
+
+        .hero{min-height:100vh;display:flex;align-items:center;padding-top:80px;position:relative;perspective:1400px}
+        .hero-stage{position:relative;z-index:1;width:100%;transform-style:preserve-3d;will-change:transform}
+        .hero-content{max-width:800px}
+        .hero::before{content:'';position:absolute;top:-8%;right:-20%;width:750px;height:750px;background:radial-gradient(circle,var(--glow) 0%,transparent 50%);animation:pA 16s infinite alternate ease-in-out;z-index:0;pointer-events:none}
+        .hero::after{content:'';position:absolute;bottom:-12%;left:-10%;width:550px;height:550px;background:radial-gradient(circle,var(--glow-cyan) 0%,transparent 50%);animation:pB 18s infinite alternate-reverse ease-in-out;z-index:0;pointer-events:none}
+        @keyframes pA{0%{opacity:.3;transform:scale(.8)}100%{opacity:.65;transform:scale(1.12) translate(-25px,25px)}}
+        @keyframes pB{0%{opacity:.2;transform:scale(.85)}100%{opacity:.5;transform:scale(1.08) translate(20px,-20px)}}
+        .hero h1{margin-bottom:1.2rem}
+        .hero h1::after{content:'';display:block;width:100px;height:4px;background:linear-gradient(90deg,var(--accent-bright),var(--accent-cyan));border-radius:2px;margin-top:1.5rem}
+        .hero p{font-size:clamp(1.05rem,1.4vw,1.2rem);max-width:540px;margin-bottom:2.5rem}
+        .hero-stat{display:flex;gap:2rem;margin-bottom:2.5rem;flex-wrap:wrap}
+        .hero-stat-item{display:flex;align-items:center;gap:8px}
+        .hero-stat-item .hs-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:2rem;font-weight:800;color:var(--accent-bright);line-height:1}
+        .hero-stat-item .hs-label{font-size:.8rem;color:var(--text3);line-height:1.3}
+
+        .btn{display:inline-flex;align-items:center;gap:10px;padding:18px 38px;background:var(--btn-bg);color:#fff;font-family:'DM Sans',sans-serif;font-weight:700;font-size:1rem;border:none;border-radius:10px;cursor:pointer;text-transform:uppercase;letter-spacing:.05em;box-shadow:0 12px 35px rgba(59,130,246,.2);transition:all .3s;text-decoration:none}
+        .btn:hover{transform:translateY(-4px);box-shadow:0 22px 50px rgba(59,130,246,.35)}
+        .btn-outline{display:inline-flex;align-items:center;gap:8px;padding:18px 38px;background:transparent;border:2px solid var(--btn-outline-border);color:var(--text);font-weight:600;font-size:1rem;border-radius:10px;cursor:pointer;text-decoration:none;transition:all .3s}
+        .btn-outline:hover{border-color:var(--accent);color:var(--accent-bright);transform:translateY(-3px)}
+        .btn-group{display:flex;gap:.85rem;flex-wrap:wrap}
+
+        .glass{background:var(--card-bg);backdrop-filter:blur(26px);-webkit-backdrop-filter:blur(26px);border:1px solid var(--border);border-radius:18px;box-shadow:var(--card-shadow);transition:all .4s}
+        .glass:hover{border-color:rgba(59,130,246,.2);box-shadow:0 24px 60px -18px rgba(0,0,0,.55),0 0 0 1px rgba(59,130,246,.05)}
+
+        .img-block{height:520px;border-radius:18px;overflow:hidden;border:1px solid var(--border-strong);box-shadow:0 24px 50px rgba(0,0,0,.2);position:relative}
+        .img-block::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg,rgba(6,11,36,.4) 0%,transparent 25%);pointer-events:none}
+
+        .partner-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:2rem}
+        .partner{padding:11px 20px;border-radius:9px;font-weight:600;font-size:.82rem;border:1px solid var(--border-strong);color:var(--text2);background:var(--elevated);transition:all .25s}
+        .partner:hover{border-color:var(--accent);color:var(--text);transform:translateY(-3px)}
+
+        .sec-header{text-align:center;max-width:620px;margin:0 auto 4.5rem}
+        .sec-header p{font-size:1.05rem;color:var(--text2);margin-top:.5rem}
+
+        /* Pillars — Problem/Solution framing */
+        .pillar{padding:3rem 2.5rem;border-radius:18px;transition:all .4s;box-shadow:var(--card-shadow);border:1px solid var(--border);border-left:4px solid var(--accent)}
+        .pillar:hover{transform:translateY(-8px);box-shadow:0 28px 60px rgba(0,0,0,.55),0 0 0 1px rgba(59,130,246,.08)}
+        .pillar .challenge{font-family:'JetBrains Mono',monospace;font-size:.68rem;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.5rem}
+        .pillar i{font-size:1.8rem;background:linear-gradient(135deg,var(--accent-bright),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1rem;display:block}
+        .pillar h3{margin-bottom:.5rem}
+        .pillar p{font-size:.92rem;color:var(--text2);line-height:1.7}
+        .pillar .outcome{margin-top:1rem;font-size:.82rem;color:var(--accent-bright);font-weight:600}
+
+        .stat-block{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:2.5rem}
+        .stat .num{font-family:'Plus Jakarta Sans',sans-serif;font-size:clamp(2.5rem,4vw,4rem);font-weight:800;background:linear-gradient(135deg,var(--accent-bright),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:.15rem}
+        .stat .desc{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--text3);text-transform:uppercase;letter-spacing:.1em}
+        @media(max-width:768px){.stat-block{grid-template-columns:1fr}}
+
+        /* Process — named methodology */
+        .method-header{text-align:center;margin-bottom:3rem}
+        .method-name{display:inline-block;padding:6px 18px;border:1px solid var(--accent);border-radius:100px;font-family:'JetBrains Mono',monospace;font-size:.72rem;color:var(--accent-bright);letter-spacing:.1em;text-transform:uppercase}
+        .process-step{display:flex;gap:2rem;padding:1.75rem 0;border-bottom:1px solid var(--border)}
+        .process-step:last-child{border-bottom:none}
+        .process-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,var(--accent-bright),var(--accent-cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;min-width:80px}
+        .process-body h4{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.15rem;font-weight:700;margin-bottom:.35rem;color:var(--text)}
+        .process-body p{font-size:.95rem;color:var(--text2)}
+
+        .founder-card{display:flex;gap:2rem;padding:2.5rem;align-items:flex-start}
+        .founder-avatar{width:68px;height:68px;border-radius:50%;border:2.5px solid var(--accent);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+        .founder-info h3{font-size:1.2rem;margin-bottom:.1rem}
+        .founder-info .title{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:var(--accent-bright);text-transform:uppercase;letter-spacing:.12em;margin-bottom:.5rem}
+        .founder-info p{font-size:.88rem;color:var(--text2);line-height:1.6;margin-bottom:.65rem}
+        .founder-info a.linkedin{display:inline-flex;align-items:center;gap:6px;font-size:.82rem;color:var(--accent-bright);text-decoration:none;font-weight:600}
+        @media(max-width:768px){.founder-card{flex-direction:column;align-items:center;text-align:center}}
+
+        .value-card{padding:2.5rem 2rem;text-align:center;transition:all .35s}
+        .value-card:hover{transform:translateY(-6px)}
+        .value-card h3{font-size:1.15rem;margin-bottom:.5rem}
+        .value-card p{font-size:.9rem;color:var(--text2);line-height:1.7}
+
+        .cta{text-align:center;padding:clamp(4rem,8vw,6.5rem) 0;position:relative}
+        .cta::before{content:'';position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--glow) 0%,transparent 55%);pointer-events:none}
+        .cta-card{display:inline-block;padding:4rem 3.5rem;max-width:660px;border:1px solid rgba(59,130,246,.15)}
+
+        .footer{padding:4rem 0 2.5rem;border-top:1px solid var(--border);background:var(--footer-bg);transition:background .5s}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3.5rem}
+        .footer-grid h5{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;margin-bottom:1rem;color:var(--text)}
+        .footer-grid p,.footer-grid a{display:block;color:var(--text3);font-size:.85rem;margin-bottom:.5rem;transition:color .15s;text-decoration:none}
+        .footer-grid a:hover{color:var(--accent-bright)}
+        .footer-bottom{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border);text-align:center;color:var(--text3);font-size:.72rem}
+        .footer-bottom a{color:var(--text3);text-decoration:none;margin:0 .85rem;transition:color .15s}
+        .footer-bottom a:hover{color:var(--accent-bright)}
+        @media(max-width:768px){.footer-grid{grid-template-columns:1fr}}
+
+        .reveal{opacity:0;transform:translateY(35px);transition:opacity .75s ease,transform .75s ease}
+        .reveal.vis{opacity:1;transform:translateY(0)}
+        .vs{position:fixed;bottom:.85rem;right:.85rem;z-index:999;display:flex;gap:4px}
+        .vs a{background:var(--elevated);border:1px solid var(--border-strong);color:var(--text3);padding:6px 11px;border-radius:6px;font-family:'JetBrains Mono',monospace;font-size:.62rem;transition:all .15s;text-decoration:none}
+        .vs a:hover{border-color:var(--accent);color:var(--accent-bright)}
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div class="canvas-overlay"></div>
+
+<header class="header">
+    <div class="container">
+        <a href="#" class="logo" id="log"><div class="logo-mark"><div class="outer"></div><div class="inner"></div></div><span class="logo-text">GOVANTIS</span></a>
+        <nav class="nav"><a href="#who">Who We Are</a><a href="#founders">Founders</a><a href="#what">What We Do</a><a href="#how">Our Method</a><a href="#contact" class="cta-link">Contact</a></nav>
+    </div>
+</header>
+<main id="content">
+
+<section class="hero" id="heroSection">
+    <div class="container"><div class="hero-stage" id="heroStage"><div class="hero-content reveal">
+        <p class="label">Independent Platform Strategy</p>
+        <h1>Bridging Platform Strategy with <span class="grad">AI-Native Execution.</span></h1>
+        <p>Your platform decisions shape the next decade of your business. We make sure they're the right ones — with engineering depth that comes from inside Deutsche Telekom, Vodafone, BT, and NOS.</p>
+        <div class="hero-stat">
+            <div class="hero-stat-item"><div class="hs-num">100%</div><div class="hs-label">Vendor<br>Independent</div></div>
+            <div class="hero-stat-item"><div class="hs-num">C-Level</div><div class="hs-label">to Engineering<br>Floor</div></div>
+            <div class="hero-stat-item"><div class="hs-num">AI+Telco</div><div class="hs-label">Unique<br>Intersection</div></div>
+        </div>
+        <div class="btn-group"><a href="mailto:info@govantis.pt" class="btn">Start a Conversation</a><a href="#what" class="btn-outline">Explore Capabilities →</a></div>
+    </div></div></div>
+</section>
+
+<section id="who" class="sec">
+    <div class="container grid2">
+        <div class="reveal">
+            <p class="label">Who We Are</p>
+            <h2>AI-native engineers who shaped <span class="grad">the platforms you rely on.</span></h2>
+            <p style="font-size:1.1rem;margin-bottom:1.2rem">We didn't learn telecom from slide decks. We came from inside Deutsche Telekom, Vodafone, BT, NOS — where we designed architectures, led platform migrations, and contributed to RDK and prpl Foundation standards.</p>
+            <p style="font-size:1.1rem;margin-bottom:1.2rem">European company, global operations. Based in Lisbon. No parent vendor. No hidden agenda. We pair decades of operator DNA with AI-native product ideation.</p>
+            <div class="partner-row"><div class="partner">Deutsche Telekom</div><div class="partner">Vodafone</div><div class="partner">BT</div><div class="partner">NOS</div><div class="partner">prpl Foundation</div><div class="partner">RDK</div></div>
+        </div>
+        <div class="reveal" style="transition-delay:120ms"><div class="img-block">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><defs><linearGradient id="v13g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.1"/><stop offset="50%" stop-color="#06b6d4" stop-opacity="0.06"/><stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.04"/></linearGradient><radialGradient id="v13r1" cx="40%" cy="40%"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.06"/><stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/></radialGradient></defs><rect width="900" height="600" fill="#060b24"/><rect width="900" height="600" fill="url(#v13g1)"/><rect width="900" height="600" fill="url(#v13r1)"/><g opacity="0.5"><line x1="0" y1="110" x2="900" y2="110" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/><line x1="0" y1="230" x2="900" y2="230" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/><line x1="0" y1="350" x2="900" y2="350" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/><line x1="0" y1="470" x2="900" y2="470" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/><line x1="140" y1="0" x2="140" y2="600" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/><line x1="300" y1="0" x2="300" y2="600" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/><line x1="480" y1="0" x2="480" y2="600" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/><line x1="660" y1="0" x2="660" y2="600" stroke="#fff" stroke-opacity="0.02" stroke-width="1"/></g><g><rect x="80" y="35" width="55" height="130" rx="5" fill="#0d1640" stroke="#3b82f6" stroke-opacity="0.2" stroke-width="1.2"/><rect x="95" y="50" width="5" height="5" rx="1" fill="#3b82f6" opacity="0.6"/><rect x="95" y="62" width="5" height="5" rx="1" fill="#06b6d4" opacity="0.4"/><rect x="95" y="74" width="5" height="5" rx="1" fill="#3b82f6" opacity="0.35"/><rect x="95" y="86" width="5" height="5" rx="1" fill="#1d4ed8" opacity="0.5"/><rect x="95" y="98" width="5" height="5" rx="1" fill="#3b82f6" opacity="0.55"/><rect x="95" y="118" width="25" height="3" rx="1" fill="#fff" opacity="0.06"/><rect x="95" y="128" width="20" height="3" rx="1" fill="#fff" opacity="0.05"/></g><g><rect x="250" y="20" width="55" height="150" rx="5" fill="#0d1640" stroke="#06b6d4" stroke-opacity="0.18" stroke-width="1.2"/><circle cx="277" cy="40" r="3.5" fill="#3b82f6" opacity="0.55"/><circle cx="277" cy="58" r="3.5" fill="#06b6d4" opacity="0.45"/><circle cx="277" cy="76" r="3.5" fill="#3b82f6" opacity="0.5"/><rect x="267" y="100" width="20" height="3" rx="1" fill="#fff" opacity="0.06"/><rect x="267" y="115" width="25" height="3" rx="1" fill="#fff" opacity="0.05"/></g><circle cx="440" cy="110" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2"/><circle cx="440" cy="110" r="3" fill="#3b82f6" opacity="0.85"/><circle cx="600" cy="70" r="8" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/><circle cx="600" cy="70" r="3" fill="#06b6d4" opacity="0.85"/><circle cx="530" cy="210" r="8" fill="none" stroke="#1d4ed8" stroke-opacity="0.35" stroke-width="2"/><circle cx="530" cy="210" r="3" fill="#1d4ed8" opacity="0.8"/><circle cx="700" cy="140" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2"/><circle cx="700" cy="140" r="3" fill="#3b82f6" opacity="0.85"/><circle cx="370" cy="280" r="8" fill="none" stroke="#06b6d4" stroke-opacity="0.35" stroke-width="2"/><circle cx="370" cy="280" r="3" fill="#06b6d4" opacity="0.75"/><g stroke-width="1.2"><line x1="440" y1="110" x2="600" y2="70" stroke="#3b82f6" stroke-opacity="0.14"/><line x1="440" y1="110" x2="530" y2="210" stroke="#06b6d4" stroke-opacity="0.12"/><line x1="600" y1="70" x2="700" y2="140" stroke="#3b82f6" stroke-opacity="0.14"/><line x1="530" y1="210" x2="700" y2="140" stroke="#1d4ed8" stroke-opacity="0.1"/><line x1="440" y1="110" x2="370" y2="280" stroke="#3b82f6" stroke-opacity="0.1"/></g></svg>
+        </div></div>
+    </div>
+</section>
+
+<section id="founders" class="sec sec-alt">
+    <div class="container"><div class="sec-header reveal"><p class="label">Founders</p><h2>The people behind <span class="grad">Govantis.</span></h2><p style="color:var(--text2);font-size:1.05rem">A combined three decades inside the world's largest telecom operators. Now building the advisory we wish had existed when we were on the inside.</p></div>
+    <div class="grid2">
+        <div class="founder-card glass reveal"><div class="founder-avatar"><div class="logo-mark"><div class="outer"></div><div class="inner"></div></div></div><div class="founder-info"><h3>Augusto Silva</h3><div class="title">Co-Founder</div><p>Former Deutsche Telekom and BT. Led cloud TV platform delivery at BT and platform strategy at Deutsche Telekom. Instituto Superior Técnico. Deep experience in RDK ecosystem and AI-driven platform operations.</p><a href="https://www.linkedin.com/in/augustosilva" class="linkedin" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div></div>
+        <div class="founder-card glass reveal" style="transition-delay:100ms"><div class="founder-avatar"><div class="logo-mark"><div class="outer"></div><div class="inner"></div></div></div><div class="founder-info"><h3>Pedro Caldeira dos Santos</h3><div class="title">Co-Founder</div><p>Former Vodafone Group, Altran, and Nokia Siemens. Represented Vodafone on the prpl Foundation Board, CableLabs, and Wi-Fi Alliance. Top 25 Altran Portugal. Led product innovation across broadband, TV, and connected home.</p><a href="https://www.linkedin.com/in/pedrocaldeirasantos" class="linkedin" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div></div>
+    </div></div>
+</section>
+
+<section id="what" class="sec">
+    <div class="container"><div class="sec-header reveal"><p class="label">What We Do</p><h2>Three capabilities. <span class="grad">One outcome: results.</span></h2></div>
+    <div class="grid3">
+        <div class="pillar reveal"><div class="challenge">Challenge: Platform governance at scale</div><i class="fa-solid fa-shield-halved"></i><h3>Governance & Strategy</h3><p>Independent C-level advisory on platform ecosystems. Multi-operator program management. AI readiness assessment. Regulatory compliance alignment — frameworks that survive contact with reality.</p><div class="outcome">→ Outcome: Governance frameworks that scale with your platform</div></div>
+        <div class="pillar reveal" style="transition-delay:80ms"><div class="challenge">Challenge: Complex multi-vendor delivery</div><i class="fa-solid fa-server"></i><h3>Complex Delivery</h3><p>End-to-end execution across RDK, Android TV, prplOS, and OpenWrt. Broadband, TV, and connectivity projects where failure is not an option. Cloud-native migration. Vendor management.</p><div class="outcome">→ Outcome: Critical projects delivered on time, on spec</div></div>
+        <div class="pillar reveal" style="transition-delay:160ms"><div class="challenge">Challenge: Turning platform data into intelligence</div><i class="fa-solid fa-brain"></i><h3>AI Products & Scale</h3><p>We ideate, prototype, and scale AI-native products purpose-built for telecom infrastructure. From submarine cable optimization to edge computing — AI that operators trust with their networks.</p><div class="outcome">→ Outcome: AI products in production, not proof-of-concept</div></div>
+    </div></div>
+</section>
+
+<section id="how" class="sec sec-alt">
+    <div class="container"><div class="sec-header reveal"><p class="label">Our Method</p><h2>Platform-to-Outcome. <span class="grad">No detours.</span></h2>
+        <div class="method-header"><span class="method-name">The Platform-to-Outcome Method</span></div>
+    </div>
+    <div class="grid2">
+        <div class="reveal">
+            <p style="font-size:1.05rem;margin-bottom:2rem;color:var(--text2)">Most advisory firms deliver slide decks. We deliver outcomes. Our method is built on three phases that compress the distance between platform strategy and measurable business results.</p>
+            <div class="process-step"><div class="process-num">1</div><div class="process-body"><h4>Understand Your Platform</h4><p>We invest time learning your architecture, constraints, and ambitions. No generic frameworks. No template assessments. We map your platform reality before we recommend anything.</p></div></div>
+            <div class="process-step"><div class="process-num">2</div><div class="process-body"><h4>Align Stakeholders & Strategy</h4><p>We bring executive leadership, engineering leadership, product teams, and procurement together around a shared technical and business vision. We translate between the languages each group speaks.</p></div></div>
+            <div class="process-step"><div class="process-num">3</div><div class="process-body"><h4>Execute to Outcome</h4><p>We don't just recommend — we build, debug, and deploy alongside your teams. We stay until the outcomes are delivered, measured, and validated. Not until the invoice is paid.</p></div></div>
+        </div>
+        <div class="reveal" style="transition-delay:120ms"><div class="img-block">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600"><defs><linearGradient id="v13g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3b82f6" stop-opacity="0.08"/><stop offset="100%" stop-color="#06b6d4" stop-opacity="0.05"/></linearGradient></defs><rect width="900" height="600" fill="#060b24"/><rect width="900" height="600" fill="url(#v13g2)"/><circle cx="180" cy="120" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.45" stroke-width="2"/><circle cx="180" cy="120" r="3" fill="#3b82f6" opacity="0.9"/><circle cx="380" cy="80" r="8" fill="none" stroke="#06b6d4" stroke-opacity="0.45" stroke-width="2"/><circle cx="380" cy="80" r="3" fill="#06b6d4" opacity="0.9"/><circle cx="580" cy="120" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.45" stroke-width="2"/><circle cx="580" cy="120" r="3" fill="#3b82f6" opacity="0.9"/><circle cx="750" cy="100" r="8" fill="none" stroke="#1d4ed8" stroke-opacity="0.4" stroke-width="2"/><circle cx="750" cy="100" r="3" fill="#1d4ed8" opacity="0.85"/><circle cx="280" cy="260" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2"/><circle cx="280" cy="260" r="3" fill="#3b82f6" opacity="0.85"/><circle cx="480" cy="260" r="8" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/><circle cx="480" cy="260" r="3" fill="#06b6d4" opacity="0.85"/><circle cx="680" cy="260" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2"/><circle cx="680" cy="260" r="3" fill="#3b82f6" opacity="0.85"/><circle cx="280" cy="420" r="8" fill="none" stroke="#06b6d4" stroke-opacity="0.4" stroke-width="2"/><circle cx="380" cy="480" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.4" stroke-width="2"/><circle cx="550" cy="440" r="8" fill="none" stroke="#1d4ed8" stroke-opacity="0.4" stroke-width="2"/><circle cx="380" cy="380" r="8" fill="none" stroke="#3b82f6" stroke-opacity="0.35" stroke-width="2"/><g stroke-width="1.2"><line x1="180" y1="120" x2="380" y2="80" stroke="#3b82f6" stroke-opacity="0.15"/><line x1="380" y1="80" x2="580" y2="120" stroke="#06b6d4" stroke-opacity="0.15"/><line x1="580" y1="120" x2="750" y2="100" stroke="#3b82f6" stroke-opacity="0.12"/><line x1="180" y1="120" x2="280" y2="260" stroke="#3b82f6" stroke-opacity="0.12"/><line x1="380" y1="80" x2="480" y2="260" stroke="#06b6d4" stroke-opacity="0.12"/><line x1="280" y1="260" x2="480" y2="260" stroke="#3b82f6" stroke-opacity="0.17"/><line x1="280" y1="260" x2="280" y2="420" stroke="#06b6d4" stroke-opacity="0.17"/><line x1="480" y1="260" x2="680" y2="260" stroke="#3b82f6" stroke-opacity="0.15"/><line x1="280" y1="420" x2="380" y2="480" stroke="#3b82f6" stroke-opacity="0.14"/><line x1="380" y1="380" x2="550" y2="440" stroke="#06b6d4" stroke-opacity="0.12"/></g></svg>
+        </div></div>
+    </div></div>
+</section>
+
+<section id="why" class="sec">
+    <div class="container"><div class="sec-header reveal"><p class="label">Why Govantis</p><h2>AI-native meets <span class="grad">Telco DNA.</span></h2></div>
+    <div class="grid3">
+        <div class="value-card glass reveal"><h3>Vendor Agnostic</h3><p>We don't sell licenses. Every recommendation is based on technical merit and measurable business impact — not vendor relationships.</p></div>
+        <div class="value-card glass reveal" style="transition-delay:80ms"><h3>Engineers at the Table</h3><p>Our advisors deployed platforms at Deutsche Telekom, Vodafone, BT, NOS. They build AI products — not just recommend them. The gap between architecture and reality is where we live.</p></div>
+        <div class="value-card glass reveal" style="transition-delay:160ms"><h3>Outcomes Over Hours</h3><p>We structure engagements around deliverables and business impact — not utilization rates. We succeed when your platform outcomes are delivered, not when our invoice is paid.</p></div>
+    </div></div>
+</section>
+
+<section id="contact" class="cta">
+    <div class="container reveal"><div class="cta-card glass"><p class="label" style="text-align:center">Contact</p><h2 style="margin-bottom:1rem">Let's Talk About <span class="grad">Your Platform.</span></h2><p style="color:var(--text2);margin-bottom:2.5rem;font-size:1.05rem">Whether you're evaluating your platform strategy, planning a migration, or building AI-native products — start with a conversation.</p>
+    <div class="btn-group" style="justify-content:center"><a href="mailto:info@govantis.pt" class="btn" style="text-transform:none"><i class="fa-solid fa-envelope"></i> info@govantis.pt</a><a href="https://linkedin.com/company/govantis" class="btn-outline" style="text-transform:none" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a></div></div></div>
+</section>
+</main>
+
+<footer class="footer">
+    <div class="container"><div class="footer-grid">
+        <div><div class="logo" style="cursor:default"><div class="logo-mark"><div class="outer"></div><div class="inner"></div></div><span class="logo-text" style="font-size:1.1rem">GOVANTIS</span></div><p style="margin-top:.75rem;font-size:.82rem;color:var(--text3)">Bridging Platform Strategy with AI-Native Execution. Platform-to-Outcome Method.</p></div>
+        <div><h5>Office</h5><p>Rua Castilho, n.º 39, 8.º E</p><p>1250-068 Santo António, Lisboa</p></div>
+        <div><h5>Connect</h5><a href="mailto:info@govantis.pt"><i class="fa-solid fa-envelope" style="margin-right:6px"></i> info@govantis.pt</a><a href="https://linkedin.com/company/govantis" rel="noopener noreferrer" target="_blank"><i class="fa-brands fa-linkedin" style="margin-right:6px"></i> LinkedIn</a></div>
+    </div><div class="footer-bottom">&copy; 2026 Govantis. All rights reserved. <a href="/privacy">Privacy</a></div></div>
+</footer>
+
+<div class="vs"><a href="../v1/">v1</a><a href="../v2/">v2</a><a href="../v3/">v3</a><a href="../v4/">v4</a><a href="../v6/">v6</a><a href="../v7/">v7</a><a href="../v8/">v8</a><a href="../v9/">v9</a><a href="../v10/">v10</a><a href="../v11/">v11</a><a href="../v12/">v12</a></div>
+
+<script>
+const log=document.getElementById('log');let ls=0;
+window.addEventListener('scroll',()=>{const s=window.scrollY;if(s>ls&&s>80)log.querySelector('.logo-mark').classList.add('anim');else if(s<ls)log.querySelector('.logo-mark').classList.remove('anim');ls=s},{passive:true});
+const ob=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('vis');ob.unobserve(x.target)}})},{rootMargin:'0px 0px -40px 0px',threshold:.04});
+document.querySelectorAll('.reveal').forEach(el=>ob.observe(el));
+const c=document.getElementById('canvas'),ctx=c.getContext('2d');let w,h,pts=[],D=180;
+function rs(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}window.addEventListener('resize',rs);rs();
+class P{constructor(){this.x=Math.random()*w;this.y=Math.random()*h;this.vx=(Math.random()-.5)*.22;this.vy=(Math.random()-.5)*.22;this.r=Math.random()*1+.35}
+upd(){this.x+=this.vx;this.y+=this.vy;if(this.x<0||this.x>w)this.vx*=-1;if(this.y<0||this.y>h)this.vy*=-1}
+drw(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle='rgba(59,130,246,.18)';ctx.fill()}}
+const n=Math.min(Math.floor(w*h/28000),55);for(let i=0;i<n;i++)pts.push(new P());
+(function an(){ctx.clearRect(0,0,w,h);for(let i=0;i<pts.length;i++){pts[i].upd();pts[i].drw();for(let j=i+1;j<pts.length;j++){const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.sqrt(dx*dx+dy*dy);if(d<D){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(59,130,246,'+(1-d/D)*.07+')';ctx.lineWidth=1;ctx.stroke()}}}requestAnimationFrame(an)})();
+const heroStage=document.getElementById('heroStage'),heroSection=document.getElementById('heroSection');
+window.addEventListener('scroll',()=>{const rect=heroSection.getBoundingClientRect();const p=Math.max(0,Math.min(1,(rect.bottom)/(rect.height*2)));heroStage.style.transform=`rotateX(${(.5-p)*8}deg) rotateY(${p*4}deg) translateZ(${p*22}px)`},{passive:true});
+</script>
+</body>
+</html>
