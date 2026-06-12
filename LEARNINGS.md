@@ -196,4 +196,21 @@ git push origin HEAD:gh-pages --force
 
 ---
 
+---
+
+## 8. Text Wrapping in Constrained Grids
+
+### `clamp()` at Large Sizes + Hyphenated Text = Unintended Wrap
+**Problem**: `.stat .num` used `font-size: clamp(2rem, 4vw, 3.5rem)` inside a 3-column grid. "C-Level" (7 chars with hyphen) rendered at ~51px in a ~140px column, causing a line break at the hyphen ("C-" on line 1, "Level" on line 2). The hyphen is a valid soft-hyphen breakpoint that browsers use for overflow prevention.
+
+**Root cause**: Font-size uses fluid `vw` units that grow faster than the grid column width shrinks. No agent validated actual text rendering at real viewport widths — content length vs. container width vs. font-size is a **cross-cutting concern** between UX Architect (layout), UI Designer (typography), and Content Creator (copy length). No single agent owned this intersection.
+
+**Fix**: `white-space: nowrap` on `.stat .num` prevents any stat value from wrapping, regardless of viewport or font-size.
+
+**Lesson**: Any text at `clamp(≥2rem, vw, ≥3rem)` in a multi-column grid must be checked for wrapping. Add `white-space: nowrap` by default on stat/hero number elements — they are single-value displays, not paragraphs. Add a checklist item: "Verify all stat blocks render on one line across breakpoints."
+
+**Affected**: v7–v14 (all had the same bug). Fixed in v15.
+
+---
+
 *Last updated: June 2026*
