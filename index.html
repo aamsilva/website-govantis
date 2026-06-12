@@ -39,7 +39,6 @@
             --pillar-text: var(--text2);
             --card-shadow: 0 20px 50px -15px rgba(0,0,0,0.4);
             --cta-card-border: rgba(45,212,191,0.2);
-            --vs-bg: var(--elevated);
         }
 
         /* --- LIGHT MODE (system preference) --- */
@@ -65,7 +64,6 @@
                 --pillar-text: var(--text2);
                 --card-shadow: 0 10px 30px -10px rgba(0,0,0,0.08);
                 --cta-card-border: rgba(13,148,136,0.3);
-                --vs-bg: var(--elevated);
             }
         }
 
@@ -202,11 +200,6 @@
         .reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
         .reveal.vis{opacity:1;transform:translateY(0)}
 
-        /* --- Version switcher --- */
-        .vs{position:fixed;bottom:1rem;right:1rem;z-index:999;display:flex;gap:6px}
-        .vs a{background:var(--vs-bg);border:1px solid var(--border-med);color:var(--text3);padding:6px 12px;border-radius:6px;font-size:.7rem;font-family:'JetBrains Mono',monospace;transition:all .15s;text-decoration:none}
-        .vs a:hover{border-color:var(--accent);color:var(--accent)}
-        .vs a.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
         /* --- Alt section backgrounds --- */
         .sec-alt{background:var(--surface);transition:background .3s}
@@ -436,8 +429,6 @@
         <div class="footer-bottom">&copy; 2026 Govantis. All rights reserved. <a href="/privacy">Privacy</a></div>
     </div>
 </footer>
-
-<div class="vs"><a href="/to_test/v1/">v1</a><a href="/to_test/v2/">v2</a><a href="/to_test/v3/">v3</a><a href="/to_test/v4/">v4</a><a href="/to_test/v6/">v6</a><a href="/to_test/v7/">v7</a><a href="/to_test/v8/">v8</a><a href="/to_test/v9/">v9</a><a href="/to_test/v10/">v10</a><a href="/to_test/v11/">v11</a><a href="/to_test/v12/">v12</a><a href="/to_test/v13/">v13</a><a href="/to_test/v14/">v14</a><a href="/" class="active">v15</a></div>
 
 <script>
 const log=document.getElementById('log');let ls=0;
