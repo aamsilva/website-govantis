@@ -177,7 +177,7 @@ The deploy workflow is:
 ## 13. CRITICAL ADDRESSES
 - PTisp: aamsilva@gmail.com
 - GitHub: aamsilva (token in ~/.config/opencode/TOOLS.md)
-- Linkedin: /company/govantis (company page on user's profile)
+- Linkedin: /company/govant-is
 - Email: info@govantis.pt
 
 ## 14. FILES REFERENCED
