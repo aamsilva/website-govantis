@@ -213,4 +213,16 @@ git push origin HEAD:gh-pages --force
 
 ---
 
+## 9. Em Dashes "—" Are a Telltale Sign of AI-Generated Copy
+
+**Problem**: v15 used 5 em dashes "—" in visible body copy (AI Products pillar, How We Work intro, Outcomes Over Hours, Contact, and originally in insight descriptions). Em dashes are statistically overused by LLMs compared to human writers, making the copy feel "AI-generated" to discerning readers.
+
+**Fix**: Replace every visible em dash with either a colon (most cases: "intelligence: AI engineering", "your teams: every engagement", "your challenge: if platform strategy") or a comma (one case: "business impact, not utilization rates"). The meta description and page title still use em dashes as they follow standard editorial convention.
+
+**Lesson**: After any AI-assisted copywriting pass, grep for `—` in the output and replace with more natural punctuation. Colons, commas, or plain full stops are almost always better. Em dashes in titles/descriptions (SEO, `<title>`) are acceptable.
+
+**Affected**: v15. Fixed in v16.
+
+---
+
 *Last updated: June 2026*
